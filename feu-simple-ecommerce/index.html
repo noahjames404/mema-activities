@@ -1,0 +1,160 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<style>
+    
+</style>
+
+
+<body>
+    
+    <header class="bg-dark text-white p-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                <h1>My Shop</h1>
+                </div>
+                <div class="col-6">
+                    <p class="text-right mt-2"><a class="btn btn-success">Cart <span class='badge badge-danger' id='cart-qty'>0</span></a>
+                </p>  
+                </div>
+            </div>
+            
+          
+        </div>
+    </header>
+    <h1 >
+        
+    </h1>
+    <div class="container">
+        
+        <div id='item-list' class='row'></div>
+    </div>
+</body>
+<script src="assets/js/jquery.js"></script>
+<script>
+    var cart_items = [];
+    
+    var items = [
+            ["Headphones", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 300, "download.jpeg"],
+            ["Headphones", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 300, "item_mobile.jpg"],
+            ["Headphones", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 300, "item_mobile2.jpg"],
+            ["Headphones", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 300, "item_mobile3.jpg"],
+            ["Headphones", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 300, "mobile.jpeg"],
+        ];
+    
+    function generateItems() {
+        
+
+        for (var i = 0; i < items.length; i++) {
+            $("#item-list").append(
+                itemTemplate(
+                    i,
+                    items[i][0],
+                    items[i][1],
+                    items[i][2],
+                    items[i][3]
+                )
+            );
+        }
+
+    }
+    
+    $(document).on("click",".add-cart",function(){
+        if(cart_items != null){
+            $id = $(this).attr("item");
+            var item_index = itemAlreadyExist(parseInt($id));
+            if(itemAlreadyExist(parseInt($id)) != -1){
+                cart_items[item_index][1] += 1 ;
+                $(this).find(".item-qty").text(cart_items[item_index][1]);
+            }else {
+                cart_items.push([$id,1]);
+                $(this).find(".item-qty").text(1);
+            }
+            
+            var ds = $(".remove-cart[item='"+$id+"']");
+            ds.removeClass("d-none")
+            
+        }
+        
+        updateCart(getTotalItems());
+        
+    })
+    
+    
+    $(document).on("click",".remove-cart",function(){
+        if(cart_items != null){
+            $id = $(this).attr("item");
+            var item_index = itemAlreadyExist(parseInt($id));
+            if(itemAlreadyExist(parseInt($id)) != -1){
+                if(cart_items[item_index][1] > 0){
+                    cart_items[item_index][1] -= 1 ;
+                    if(cart_items[item_index][1] ==0){
+                        var ds = $(".remove-cart[item='"+$id+"']");
+                    ds.addClass("d-none")
+                        $(".add-cart[item='"+$id+"']").find(".item-qty").text("");
+                       }else {
+                           $(".add-cart[item='"+$id+"']").find(".item-qty").text(cart_items[item_index][1]);
+                       }
+                    
+                       
+                }
+               
+            }
+            
+            
+            
+            
+        }
+        
+        updateCart(getTotalItems());
+        
+    })
+    
+    function updateCart(qty){
+        $("#cart-qty").text(qty);
+    }
+    
+    function openCart(){
+        
+    }
+    
+    function itemAlreadyExist(id){
+        for(var i =0; i < cart_items.length; i++){
+            if(id == cart_items[i][0]){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    function getTotalItems(){
+        var total = 0;
+        for(var i =0; i < cart_items.length; i++){
+            total += cart_items[i][1];
+        }
+        return total;
+        
+    }
+
+    function itemTemplate(id, title, description, price, image_path) {
+        return "<div class=' col-lg-6 col-md-12' >" +
+            "<div class='border p-2 mb-2'> "+
+            "<div class='row'> "+
+            "<div class='col-6'>" +
+            "<img class='img-fluid' src='assets/img/" + image_path + "'>" +
+            "</div>" +
+            "<div class='col-6'>" +
+            "<h4>" + title + "</h4>" +
+            "<h5>₱" + price + "</h5>" +
+            "<p>" + description + "</p>" +
+            "<button class='btn btn-primary add-cart' item='" + id + "'>Add to Cart <span class='item-qty'></span></button>" +
+            "<button class='btn btn-danger remove-cart d-none'  item='" + id + "'>Remove</button>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+    }
+
+    generateItems();
+</script></html>
+
