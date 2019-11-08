@@ -5,15 +5,15 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="extension/css/style.css" rel="stylesheet">
 
 
     <!-- Bootstrap CSS File -->
     <link href="extension/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files Yes yees yow -->
-    <link href="extension/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="extension/lib/animate/animate.min.css" rel="stylesheet">
+    <!-- lol - njy -->
+    <!-- <link href="extension/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="extension/lib/animate/animate.min.css" rel="stylesheet"> -->
 
     <!-- FONTS -->
 
@@ -178,7 +178,7 @@
         }    
         
         #my-cart {
-            position: fixed;
+            position: absolute;
             z-index: 1001;
             height: 100%;
             width: 100%;
@@ -192,6 +192,10 @@
 
         .v-center {
            vertical-align: middle!important;
+        }
+
+        .error {
+            color: rgb(211, 62, 67);
         }
   </style>
 
@@ -321,7 +325,7 @@
 
     <div id='background' class='d-none'>
     </div>
-    <div id='my-cart' class='d-none text-dark'>
+    <form id='my-cart' class='d-none text-dark'>
         <div class='container mt-5 bg-white'>
             <div class='row p-4'>
                 <div class='col-6'>
@@ -350,19 +354,19 @@
                         <tr class=''>
                             <td>Payment Type</td>
                             <td>
-                                <select required class="form-control" id='payment-type'>
+                                <select required class="form-control" name='payment-type' id='payment-type'>
                                     <option value="cod">Cash on Delivery</option>
                                     <option value="dc">Credit Card</option>
                                 </select>
                             </td>
                         </tr>  
                         <tr class='debit-form d-none'>
-                            <td colspan="2"><input class='form-control' type="number" placeholder="Card Number" max="11"></td>
-                           
+                            <td colspan="2"><input onkeydown="return event.keyCode !== 69"  class='form-control' name='card-number' required type="number" placeholder="Card Number" minlength='16' maxlength="16"></td>
+                            
                         </tr>  
                         <tr class='debit-form d-none'>
-                            <td><input class='form-control' placeholder="Expiration" type="month"></td>
-                            <td><input class='form-control' placeholder="CVV" type="number" max="3"></td>
+                            <td><input class='form-control' placeholder="Expiration" name='expiration' required type="month"></td>
+                            <td><input class='form-control' onkeydown="return event.keyCode !== 69"  placeholder="CVV" name="cvv" required type="number"  minlength='3' maxlength="3" ></td>
                         </tr>
                     </tbody>
                     </table>
@@ -370,25 +374,29 @@
                     <table class='table'>
                     <tbody class=' text-dark' style="color:#666!important">
                         <tr>
-                            <td  required class='v-center'>Name</td>
-                            <td><input class='form-control'></td>
+                            <td   class='v-center'>Name</td>
+                            <td><input name="name" class='form-control' required></td>
                         </tr>  
                         <tr>
-                            <td required class='v-center'>Address</td>
-                            <td><input class='form-control'></td>
+                            <td  class='v-center'>Address</td>
+                            <td><input name='address' class='form-control' required></td>
+                        </tr>  
+                        <tr>
+                            <td   class='v-center'>Email</td>
+                            <td><input name='email' type="email" class='form-control' required></td>
                         </tr>  
                          <tr>
-                            <td  required class='v-center'>Contact</td>
-                            <td><input class='form-control'></td>
+                            <td   class='v-center'>Contact</td>
+                            <td><input name='contact' type="number" onkeydown="return event.keyCode !== 69"  class='form-control' required minlength='11' maxlength="11"></td>
                         </tr>  
                       
                     </tbody>
                     </table>
-                    <Button class='btn-success btn order btn-block'>Order Now</Button>
+                    <Button class='btn-success btn order btn-block' type='button'>Order Now</Button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
 
     <div style="background-color: #f3969a;">
@@ -397,7 +405,7 @@
 
 
     <!--SCRIPT CART -->
-    <script src="js/minicart.js"></script>
+    <!-- <script src="js/minicart.js"></script> -->
     <script>
         //        paypal.minicart.render();
         //
@@ -411,11 +419,10 @@
         //        });
 
     </script>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="extension/js/jquery.js"></script>
+    <script src="extension/js/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src='extension/js/cart.js'></script>

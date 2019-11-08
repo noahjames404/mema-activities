@@ -1,3 +1,8 @@
+
+/**
+ * temporary database, changes applied here are updated after refresh.
+ * Take Note: avoid similar ids. 
+ */
 //[category,id,description,title,price,image_path]
 var item_list = [
     ["cactus", 1, "The ‘Zebra Plant’ is a hardy, stemless succulent with a variety of vivid green color and white horizontal stripes.<br>Origin: South Africa<br>Size: up to 6”<br>Temperature: Warm coastal climates. Avoid freezing temperatures.", "Attenuata", 30, "plant2.jpg"],
@@ -63,11 +68,22 @@ var item_list = [
 
 ];
 
+/**
+ * selected items are stored on your cart
+ */
 var cart_items = [];
 
 
 
-
+/**
+ * the default template of each item,
+ * unifies the design of items. 
+ * @param {*} id - used for identifying list_items 
+ * @param {*} description - viewed on hover 
+ * @param {*} title - name of item
+ * @param {*} price - the price value of item
+ * @param {*} image_path - image source in local storage
+ */
 function generateTemplateContents(id, description, title, price, image_path) {
     return "<li><div class='container h-100'><a href='' target='_blank'> <img src='extension/img/ALL/" + image_path + "'></a>" +
         "<div class='overlay'>" +
@@ -81,6 +97,10 @@ function generateTemplateContents(id, description, title, price, image_path) {
 
 }
 
+/**
+ * loads all items in item_list using generateTemplateContents()
+ * @param {*} type 
+ */
 function populateItems(type) {
 
 
@@ -104,6 +124,10 @@ function populateItems(type) {
     }
 }
 
+/**
+ * filter items by title, similar to populateItems().
+ * @param {*} search 
+ */
 function searchItem(search) {
 
 
@@ -125,6 +149,9 @@ function searchItem(search) {
     }
 }
 
+/** 
+ * @param {*} sParam - takes the value with the same name from the url.
+ */
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
@@ -142,6 +169,14 @@ function getUrlParameter(sParam) {
     return "";
 };
 
+/**
+ * Similar to generateTemplateContents(),
+ * a uniform template for listing the cart items.
+ * @param {*} id - might be use soon, reserved paramter
+ * @param {*} name - item title
+ * @param {*} qty - item count
+ * @param {*} total - total amount value
+ */
 function getItemListTemplate(id,name,qty,total){
     return "<tr>"+
         "<td>"+name+"</td>" + 
@@ -151,11 +186,18 @@ function getItemListTemplate(id,name,qty,total){
 }
 
 
-
+/**
+ * Key listeners (such as buttons) are implemented here after successfully loading the document.
+ * Determines which type of query is selected. 
+ */
 $(document).ready(function () {
     var type = getUrlParameter("type");
     var search = getUrlParameter("search");
     console.log(search);
+
+    var cart_form = $("#my-cart");
+    cart_form.validate();
+
     if (type == "") {
          searchItem(search);
         
@@ -168,7 +210,7 @@ $(document).ready(function () {
         if(search == ""){
             document.location.search = "";
         }else {
-             insertParam("search",search);
+            window.location.href = "?search=" + search ;
         }
        
     });
@@ -225,10 +267,8 @@ $(document).ready(function () {
             }
             $(".item-list").append(getItemListTemplate(items[i][0],item[3],items[i][1],item[4] * items[i][1]));
         }
-        
-        
-        
-        
+
+        window.scrollTo(0, 0);
         
     });
     
@@ -236,14 +276,16 @@ $(document).ready(function () {
         if(getTotalItemCount() == 0){
             alert("your cart is empty");
             
-        } else {
+        } else if(cart_form.valid()){
             window.location.href = "thankyou.html";
+            
         }
     });
     
     $(".close-cart").click(function(){
          $("#background").addClass("d-none");
         $("#my-cart").addClass("d-none");
+        
     })
     
     $("#payment-type").change(function(){
@@ -253,8 +295,15 @@ $(document).ready(function () {
            $(".debit-form").addClass("d-none");
        }
     });
-});
 
+
+    
+
+
+});
+/**
+ * Takes the total number of items in the cart 
+ */
 function getTotalItemCount(){
     var total_item_count = 0;
     for(var i =0; i < cart_items.length; i++){
@@ -263,14 +312,26 @@ function getTotalItemCount(){
     return total_item_count;
 }
 
+/**
+ * takes all items from cart;
+ */
 function getCartItems(){
     return cart_items;
 }
 
+/**
+ * updates the value from the cart
+ * @param {*} items - new set of items 
+ */
 function updateCartItems(items){
     cart_items = items;
 }
 
+/**
+ * determines if id already exist in the cart.
+ * @param {*} id - cart to be examined.
+ * @returns the index of the of item in item_list, if null returns -1 
+ */
 function itemAlreadyExist(id){
     var items = getCartItems();
     for(var i = 0; i < items.length; i++){
@@ -281,6 +342,11 @@ function itemAlreadyExist(id){
     return -1;
 }
 
+
+/**
+ * get the item from item_list by id.
+ * @param {*} id 
+ */
 function getItemById(id){
     for(var i =0; i< item_list.length; i++){
         if(id == item_list[i][1]){
@@ -290,6 +356,9 @@ function getItemById(id){
     return null;
 }
 
+/**
+ * the total amount from cart items.
+ */
 function getCartTotalAmount(){
     var total = 0;
     for(var i =0; i < cart_items.length; i++){
@@ -299,46 +368,6 @@ function getCartTotalAmount(){
     return total;
 }
 
-function insertParam(key, value)
-{
-    key = encodeURI(key); value = encodeURI(value);
 
-    var kvp = document.location.search.substr(1).split('&');
-
-    var i=kvp.length; var x; while(i--) 
-    {
-        x = kvp[i].split('=');
-
-        if (x[0]==key)
-        {
-            x[1] = value;
-            kvp[i] = x.join('=');
-            break;
-        }
-    }
-
-    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
-
-    //this will reload the page, it's likely better to store this until finished
-    document.location.search = kvp.join('&'); 
-}
-
-function removeParam(key, sourceURL) {
-    var rtn = sourceURL.split("?")[0],
-        param,
-        params_arr = [],
-        queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : "";
-    if (queryString !== "") {
-        params_arr = queryString.split("&");
-        for (var i = params_arr.length - 1; i >= 0; i -= 1) {
-            param = params_arr[i].split("=")[0];
-            if (param === key) {
-                params_arr.splice(i, 1);
-            }
-        }
-        rtn = rtn + "?" + params_arr.join("&");
-    }
-    return rtn;
-}
 
 
