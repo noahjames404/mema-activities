@@ -1,0 +1,615 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link href="extension/css/style.css" rel="stylesheet">
+
+ 
+  <!-- Bootstrap CSS File -->
+  <link href="extension/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files Yes yees yow -->
+  <link href="extension/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="extension/lib/animate/animate.min.css" rel="stylesheet">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <style>
+
+  	body {
+
+  		background-color: #f8f9fa; 
+  	}
+    .sticky {
+
+      position: fixed;
+      z-index: 10;
+      width: 100%;
+
+     
+    }
+
+    nav .navbar-nav li a{
+    color: #f3969a !important;
+    }
+
+    .navbar-nav.mr-auto li a span{
+
+         color: #f3969a;
+    }
+
+    .con {
+
+      position: relative;
+      min-height: 100%;
+      min-width: 1024px;
+      padding: 60px;
+     
+    }
+  .parallax {
+   
+      background-image: url("extension/img/bg/bg4.jpg");
+      background-attachment:fixed; 
+      background-position: absolute;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 900px;
+      font-size: 150px;
+      color: white;
+      padding-top: -30px;
+
+
+  }
+
+  #shop {
+    align-content: center;
+    text-align: center;
+    letter-spacing: 10px;
+    position: relative; 
+    margin-top:100px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-top: 25%;
+    padding: 20px;
+    font-family: 'Anton', sans-serif;
+    font-size: 90px;
+  }
+
+
+
+  #collection {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 25px;
+      letter-spacing: 5px;
+
+    }
+
+  .pics, img {
+    
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+  }
+
+  .ulpics {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding: 24px 40px;
+      border-spacing: 20px;
+      overflow: hidden;
+    /*  background-color: #333; */
+      text-align: center;
+      
+      
+    }
+
+   li {
+      display: inline-block;
+      color: #f8f9fa;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 15px;
+      margin: 0 auto;
+      width: fit-content;
+    }
+
+    .ulpics li :hover {
+      background-color: #111;
+    }
+
+    .bottom {
+
+      vertical-align: middle;
+      color: #f3969a;
+      width: 100%;
+      text-align: center;
+      display: inline;
+    }
+
+    .block {
+
+      text-align: center;
+      float: left;
+      padding-left: 200px;
+
+    }
+
+    /**FOR DESCRIPTION **/
+    .container {
+      position: relative;
+      width: 100%;
+     
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 87%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color: #78c2ad;
+    }
+
+    .container:hover .overlay {
+      opacity: 1;
+    }
+
+    .text {
+      color: white;
+      font-size: 14px;
+      position: absolute;
+      top: 50%;
+      left:50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    
+    
+
+
+  </style>
+
+</head>
+<body>
+
+ <!-- NAV BAR --> 
+ <div class="sticky">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="Home.html" class="color-me"> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="Shop.html" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="Shop.html">Shop All</a>
+            <a class="dropdown-item" href="Shop-Plant.html">Plant</a>
+            <a class="dropdown-item" href="Shop-Cactus.html">Cactus</a>
+            <a class="dropdown-item" href="Shop-Succelents.html">Succulents</a>
+          </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</div>
+
+       
+       <div class ="con">
+            <div class="parallax" style="padding-top: 10%"> 
+               <center> <div id="shop"> <p> IM A SUCCA <br>FOR YOU </p> <p id="collection"> SUCCULENTS COLLECTION <p></div></center>
+            </div>
+
+        </div>
+  
+        <div style="text-align: center">
+         
+
+         <ul id="ulpics"> 
+            <li><div class="container"><a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-AMTHYSTINM-2_grande.jpg"> <br>Amythystinm <br>P80.00</a>
+        <div class="overlay">
+              <div class="text">Graptopetalum Amethystinum is also known as Wedding Almond, Jewel Leaf Plant, Lavender Pebbles, or Wine Coolers. It is a rare species that is similar-looking to moon rocks rather than a plant. <br><br>
+              Origin: Mexico<br>
+              Size: 2-4”<br>
+              Temperature: This plant does best in warm climates, keep away from frost.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+          
+      
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-BEAR-PAW-2_1_grande.jpg"> <br>Bear Paw <br>P100.00</a>
+          <div class="overlay">
+              <div class="text">Cotyledon Tomentosa 'Bear Paw' is a fleshy paw shaped succulent plant. Bear Paw succulent has fuzzy green leaves, which add a beautiful contrast and unique texture to any garden use of the plant. <br><br>
+                Origin: Africa<br>
+                Size: Up to 20”<br>
+                Temperature: This plant does best in warm dry climates. <br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-BLUE-ATOLL-2_1_large.jpg"> <br>Blue Atoll <br>P90.00</a>
+           <div class="overlay">
+              <div class="text">Echeveria 'Blue Atoll' is known for its highly structured rosette form. This fast growing rosette shaped succulent has long pointed leaves with a deep greenish blue color when exposed to the proper amount of sunlight.<br><br>
+                Origin: Native to Mexico and Central America<br>
+                Size: Up to 6”<br>
+                Temperature: This plant does best in warm climates.<br>
+
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-BLU-TEARS-2_grande.jpg"> <br>Blue Tears <br>P50.00</a>
+           <div class="overlay">
+              <div class="text">The succulent ‘Blue Tears’ is a gorgeous, mounding rosette succulent that is turquoise blue in color, and produces clusters of white star shaped flowers accented with tiny black dots.<br><br>
+                Origin: Garden cultivar<br>
+                Size:under 6”<br>
+                Temperature: Warm coastal climates. Avoid freezing temperatures.<br>
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-BLZ-GLORY-2_grande.jpg"> <br>Blazing Glory <br>P80.00</a>
+           <div class="overlay">
+              <div class="text">This succulent is a sprawling, clumping rosette that is a gorgeous frosted grey green. During the fall and winter, it blooms vivid red-orange disk like flowers.<br><br>
+              Origin: Unknown<br>
+              Size: up to 12-18”<br>
+              Temperature: Warm coastal climates. Avoid freezing temperatures.<br>
+ 
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-BURRITO-2_1_grande.jpg"> <br>Burrito <br>P40.00</a>
+           <div class="overlay">
+              <div class="text">Sedum Morganianum ‘Burrito Sedum’ is prized among many succulent collectors and home decorators alike for its beautiful delicate draping form.<br><br>
+                Origin: Mexico & Hondurus<br>
+                Size: Up to 3 ft draping<br>
+                Temperature: This plant does best in warm dry climates.<br>
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-CA-SUNSET-2_grande.jpg"> <br>California Sunset <br>P100.00</a>
+           <div class="overlay">
+              <div class="text">This succulent has compact rosettes with an orangish pink shade. The colors of the leaves are copper-gold with streaks of yellow, pink, and green overtones. <br><br>
+
+
+              Origin: Garden (nursery-produced cultivar)<br>
+              Size: 6 to 12”<br>
+              Temperature: Warm dry climates. <br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-CHOC-SOLDR-2_1_grande.jpg"> <br>Chocolate Soldier <br>P100.00</a>
+           <div class="overlay">
+              <div class="text">Kalanchoe ‘Chocolate Soldier’ sometimes referred to as “Teddy Bear Cactus” is native to Madagascar and is known for its fuzzy brown, ear shaped leaves.<br><br>
+                Origin: Native to Madagascar<br>
+                Size: Up to 24”<br>
+                Temperature: This plant does best in warm dry climates. During cold winter months, bring your succulent indoors near a bright sunny window, and keep away from frost.<br>
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-CLAVATUM-2_grande.jpg"> <br>Clavatum <br>P70.00</a>
+           <div class="overlay">
+              <div class="text">This succulent is famous for its frosty blue green leaves that is lightly tipped with shades of pink when exposed to bright light.<br><br>
+                Origin: Mexico<br>
+                Size: 4 to 6”<br>
+                Temperature: This plant does not tolerate frost but can greatly withstand high levels of heat.<br>
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-DICKS-PINK_grande.jpg"> <br>Dicks Pink <br>P50.00</a>
+           <div class="overlay">
+              <div class="text">This is an evergreen succulent that forms a large rosette. The leaves are olive green to lavender rose in shades and are slight pointed, rounded, and fleshy. <br><br>
+                Origin: Native to Mexico<br>
+                Size: Up to 12”<br>
+                Temperature: This plant does best in warm climates. <br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-FLAP-JACK-2_1_grande.jpg"> <br>Flap Jack <br>P60.00</a>
+           <div class="overlay">
+              <div class="text">Kalanchoe Thyrsiflora 'Flapjacks' is a fleshy succulent with round paddle shaped leaves, stacked like flapjacks.<br><br>
+                Origin: Native to South Africa<br>
+                Size: Up to 24”<br>
+                Temperature: This plant does best in warm climates. <br>
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-GRN-GODDES-2_grande.jpg"> <br>Green Goddess <br>P50.00</a>
+           <div class="overlay">
+              <div class="text">The Echeveria Green Goddess is an open rosette with gorgeous frosty blue foliage that has blush red tips in partial sun. During late winter and early spring, they produce large yellow-orange bell shaped flowers on lax stems.<br><br>
+                Origin: Garden cultivar<br>
+                Size: under 6”<br>
+                Temperature: Warm, drought tolerant climates. <br>
+
+               </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-JELLY-BEAN-2_1_large.jpg"> <br>Jelly Bean <br>P100.00</a>
+           <div class="overlay">
+              <div class="text">‘Jelly Bean Sedum,’ commonly referred to as ‘Pork and Beans,’ adds a beautiful texture and unique height to succulent gardens. Use this plant to add vibrant greens and reds with a one of a kind shape and quality to your garden. <br><br>
+                Origin: Native to Mexico<br>
+                Size: Up to 8” or 20 cm<br>
+                Temperature: This plant does best in hot temperatures. <br>
+
+
+
+
+
+
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-LOLA-2_1_grande.jpg"> <br>Lola <br>P50.00</a>
+           <div class="overlay">
+              <div class="text">Echeveria 'Lola' is the little darling of the succulent world boasting a virtually perfect form and a silver iridescent color with a subtle pink hue.<br><br>
+              
+              Origin: Hybrid<br>
+              Size: Up to 6”<br>
+              Temperature: This plant does best in warm dry climates. During cold winter months, bring your succulent indoors near a bright sunny window, and keep away from frost.<br>
+</div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-PENTANDRUM-2_1_grande.jpg"> <br>Pentandrum <br>P70.00</a>
+           <div class="overlay">
+              <div class="text">Graptopetalum Pentandrum is a striking purple succulent with a rosette that spans approximately 4”.<br><br>
+              Origin: Native to Mexico<br>
+              Size: Up to 4”<br>
+              Temperature: This plant does best in warm dry climates. During cold winter months, bring your succulent indoors near a bright sunny window, and keep away from frost.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-PERLE-VON-2_1_grande.jpg"> <br>Perle Von <br>P60.00</a>
+           <div class="overlay">
+              <div class="text"> Echeveria 'Perle Von Nurnberg' is a classically shaped rosette succulent. <br><br>
+              Origin: Native to Mexico<br>
+              Size: Up to 10”<br>
+              Temperature: This plant does best in warm climates. During cold winter months, bring your succulent indoors near a bright sunny window, and keep away from frost.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-PULIDONIS-2_grande.jpg"> <br>Pulidonis <br>P40.00</a>
+           <div class="overlay">
+              <div class="text">This succulent is pale green in color with red accents along the edges of the leaves.<br><br>
+              Origin: Mexico<br>
+              Size: 6-8”<br>
+              Temperature: Warm dry climates. Avoid freezing temperatures.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-RED-GRAPTO-2_1_grande.jpg"> <br>Red Grapto <br>P50.00</a>
+           <div class="overlay">
+              <div class="text">Red Graptosedum is known for its bright fleshy rosettes. This succulent has a bright red color and a tight compact flower-like form. <br><br>
+              Origin: Native to Mexico<br>
+              Size: Up to 1.5”<br>
+              Temperature: This plant does best in warm climates. During cold winter months, bring your succulent indoors near a bright sunny window, and keep away from frost.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-RUBY-SLIPRS-2_grande.jpg"> <br>Ruby Slippers <br>P80.00</a>
+           <div class="overlay">
+              <div class="text">This is a very elaborate flowering species. It forms small rosettes with dark green, narrow, velvety leaves, that are adorned with reddish edges.<br><br>
+              Origin: Mexico<br>
+              Size: 6 to 12”<br>
+              Temperature: This succulent thrives well in warm climates. In fact, it can highly tolerate drought as much as the other plants under this species.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-SEDM-PACH-2_1_grande.jpg"> <br>Sedum Pach <br>P70.00</a>
+           <div class="overlay">
+              <div class="text">Sedum Pachyphyllum is a stonecrop succulent plant with bright green and pink bean-like leaves. <br><br>
+                Origin: Native to Mexico<br>
+                Size: Up to 6”<br>
+                Temperature: This plant does best in warm climates. During cold winter months, bring your succulent indoors near a bright sunny window, and keep away from frost.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-SLEEPY-2_1_grande.jpg"> <br>Sleepy <br>P90.00</a>
+           <div class="overlay">
+              <div class="text">This mounding Rosette is a gorgeous emerald green that blooms bright yellow and orange flowers during the summer. <br><br>
+                Origin: Mexico<br>
+                Size: 2-4”<br>
+                Temperature: Warm dry climates. Avoid freezing temperatures.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-TIGER-JAW-2_grande.jpg"> <br>Tiger Jaw <br>P70.00</a>
+           <div class="overlay">
+              <div class="text">Faucaria Tigerina is a small clamp-forming perennial succulent with light green, triangular, fleshy leaves. These leaves turn a bit purple in shade when subjected under strong sunlight. <br><br>
+                Origin: Eastern Cape, South Africa<br>
+                Size: 6”<br>
+                Temperature: This plant mostly thrives during the spring and fall seasons.<br>
+
+
+
+
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-VAR-BER-PAW-2_1_grande.jpg"> <br>Var Bear Paw <br>P90.00</a>
+           <div class="overlay">
+              <div class="text">Variegated Bear Paw succulent has fuzzy green leaves with subtle yellow striping, which add a beautiful contrast and unique texture to any garden use of the plant. <br><br>
+              Origin: Africa<br>
+              Size: Up to 20”<br>
+              Tips: Cotyledons thrive in rocky porous soil with lots of drainage.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+
+
+         <li> <div class="container">  <a href="" target="_blank"> <img src="extension/img/SUCCULENTS/1-VAR-ELPHNT-2_grande.jpg"> <br>Var Elephant <br>P80.00</a>
+           <div class="overlay">
+              <div class="text">This is a slow growing type of shrub that has reddish brown stems and green glossy obovate leaves that can grow up to 0.8 inch longs. <br><br>
+                Origin: South Africa<br>
+                Size: 120”<br>
+                Temperature: This can thrive under bright light in a warm and draft-free area.<br>
+
+              </div>
+          </div>
+       </div>
+         </li>
+          
+        </ul>
+        </div>
+
+        <hr>
+         <center>
+        <div class="bottom">
+          
+              <span class="block" id="b1">
+                  O U R &nbsp; S T O R E <br>
+                  Address: 500 Terry Francois  <br>
+                  Street San Francisco, CA 94158 <br>
+                  Phone: 123-456-7890 <br>
+                  Email: info@my-domain.com 
+              </span>
+
+              <span class="block">
+                  O P E N I N G &nbsp; H O U R S<br>
+                  Address: 500 Terry Francois  <br>
+                  Street San Francisco, CA 94158 <br>
+                  Phone: 123-456-7890 <br>
+                  Email: info@my-domain.com 
+              </span>
+
+              <span class="block" id="b3">
+                  O U R &nbsp; S T O R E <br>
+                  Address: 500 Terry Francois  <br>
+                  Street San Francisco, CA 94158 <br>
+                  Phone: 123-456-7890 <br>
+                  Email: info@my-domain.com 
+              </span>
+          
+            
+        </div></center>
+        <br><br><br> <br> <br>
+
+        <br> <br>
+        <!-- Map-->
+      <div style="background-color: #f3969a;"> <center>Map </center></div>
+       <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=feu%20institute%20of%20technology&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/ipvanish-coupon/"> <!-- --></a></div><style>.mapouter{position:relative;text-align:center;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}</style></div>  
+
+
+        <div style="background-color: #f3969a;"> <center>All Rights Reserved </center></div>
+
+            
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ </body>
+ </html>
