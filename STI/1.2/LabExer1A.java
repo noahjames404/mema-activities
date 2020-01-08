@@ -1,19 +1,29 @@
 
 /**
+ * Print out the following data types 
+ * int as faveNumber (Favorite Number), String as faveCartChar (Favorite Cartoon Character),
+ * char as mi (Middle Initial), and an array of char as nickNameArray. 
  *
+ *
+ * note: the @see keyword is used to denote a reference link about the code used in this program.
  * @author noah james c. yanga
  */
 public class LabExer1A {
     public static void main(String[] args){
         /**
+         * @see https://www.w3schools.com/java/java_data_types.asp
          * declare and initialize variables
          */
         int faveNumber = 1;
         String faveCartChar = "batman";
         char mi = 'c';
+        /**
+        * @see https://www.w3schools.com/java/java_arrays.asp
+        */
         char[] nickNameArray = {'n','j'};
         
         /**
+         * @see https://www.w3schools.com/java/java_strings.asp
          * print out variables
          */
         System.out.println(faveNumber + " is my favorite number");
