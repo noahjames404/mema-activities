@@ -1,0 +1,90 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+
+/**
+ * This class shows how the extends keyword is used.
+ * if a class uses the extends keyword, the main class will inherit all of its 
+ * public methods and variables.
+ * 
+ * @author noah james yanga
+ * 
+ * extend the MainExtends class to JFrame
+ */
+public class MainExtends extends JFrame {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+       /**
+        * create an instance of the MainExtends 
+        * and call initForm method. 
+        */
+       new MainExtends().initForm();
+    }
+    
+    
+    /**
+     * initialize the main form
+     */
+    public void initForm(){
+        /**
+        * initialize the main frame and the title of the application
+        */
+       JFrame frame = new JFrame("Noah James Yanga");
+       /**
+        * set the following necessities 
+        * setDefaultCloseOperation - close on exit
+        * setVisible - show JFrame on run
+        * setSize - set the dimensions of JFrame
+        * setResizable - set the JFrame size to fix 
+        */
+       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       setVisible(true);
+       setSize(500, 150);
+       setResizable(false);
+       
+       JPanel panel = new JPanel();
+       add(panel);
+       panel.setLayout(null);
+       
+       /**
+        * a hyper text markup language (HTML) is used to
+        * modify the attributes of a font used in some parameters.
+        * 
+        */
+       panel.add(generateLabel("<html><b style='font-size:15'>Favorite line of the poem</b></html>",20,15));
+       panel.add(generateLabel("thirst for knowledge",20,33));
+       panel.add(generateLabel("by Gina Rush",20,45));
+       
+       panel.add(generateLabel("<html><b style='font-size:15'>Favorite line of the song</b></html>",270,15));
+       panel.add(generateLabel("you are natural",270,33));
+       panel.add(generateLabel("by Imagine Dragons",270,45));
+        
+       /**
+        * to apply changes in the JPanel,
+        * the repaint method must be called.
+        */
+       panel.repaint();
+    }
+    
+    /**
+     * automatically generates a pre initialize JLabel
+     * 
+     * @param text - the text of label
+     * @param x - the x coordinates 
+     * @param y - the y coordinates
+     * @return a JLabel Object
+     */
+    public JLabel generateLabel(String text, int x, int y ){
+       JLabel label = new JLabel();
+       label.setText(text);
+       label.setBounds(x,y,500,20);
+       return label;
+    }
+    
+}
