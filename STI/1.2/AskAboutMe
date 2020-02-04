@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+/**
+ * User is ask to input his/her personal informations to the program.
+ * 
+ * @author Noah James C. Yanga
+ */
+public class AskAboutMe {
+    
+    static Scanner user_input = new Scanner(System.in);
+     
+    public static void main(String args []){
+       
+        /**
+         * the information is stored in an array
+         */
+        String[] info = new String[5];
+        
+        info[0] = askUser("Enter name: ");
+        info[1] = askUser("Enter age: ");
+        info[2] = askUser("Enter address: ");
+        info[3] = askUser("Enter contact: ");
+        info[4] = askUser("Enter status life: ");
+   
+        System.out.println("Note: Hi! I'am a programmer!\n\n");
+        
+        /**
+         * print out all the information using the advance for loop
+         */
+        System.out.println("See user inputs");
+        for(String i : info){
+            System.out.println(i);
+        }
+    }
+    
+    /**
+     * Ask the user and wait for their response.
+     * @param text - the question to ask.
+     * @return - returns the response from the user.
+     */
+    static String askUser(String text){
+        System.out.print(text);
+        return user_input.nextLine();
+    }
+}
