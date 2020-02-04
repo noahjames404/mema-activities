@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  * 
  * extend the MainExtends class to JFrame
  */
-public class MainExtends extends JFrame {
+public class JFrameExtends extends JFrame {
 
     /**
      * @param args the command line arguments
