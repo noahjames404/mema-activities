@@ -32,10 +32,6 @@ public class JFrameExtends extends JFrame {
      * initialize the main form
      */
     public void initForm(){
-        /**
-        * initialize the main frame and the title of the application
-        */
-       JFrame frame = new JFrame("Noah James Yanga");
        /**
         * set the following necessities 
         * setDefaultCloseOperation - close on exit
