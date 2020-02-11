@@ -1,0 +1,110 @@
+
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class UserLogin
+{
+    private static String username, password;
+    public static void main(String[] args) throws IOException
+    {
+        DataInputStream scan = new DataInputStream(System.in);
+        
+        System.out.print("Register(1) or Log In (0)? ");
+        int x = Integer.parseInt(scan.readLine());
+        
+        if(x == 0)
+        {
+            System.out.print("Register\nEnter Username: ");
+            username = scan.readLine();
+
+            System.out.print("Enter Password: ");
+            password = scan.readLine();
+
+            Register reg = new Register(username, password);
+
+            FileWriter fw = new FileWriter("Records.txt");
+            fw.write(reg.getUsername() + "-" + reg.getPassword());
+            fw.close();
+        }
+        else if (x == 1)
+        {
+            LogIn log = new LogIn();
+
+            System.out.print("Log In\nEnter Username : ");
+            username = scan.readLine();
+
+            System.out.print("Enter Password: ");
+            password = scan.readLine();
+
+            log.getAccount();
+
+            if(username.equals(log.getUsername()) && password.equals(log.getPassword()))
+            {
+                System.out.println("Successfully Logged In");
+            }
+            else
+            {
+                System.out.println("Incorrect Username/Password ");
+            }
+        }
+    }
+}
+
+class Register
+{
+    private String username, password;
+    
+    public Register(String username, String password)
+    {
+        this.username = username;
+        this.password = password;
+    }
+    
+    private void setUsername(String username)
+    {
+        this.username = username;
+    }
+    
+    private void setPassword(String password)
+    {
+        this.password = password;
+    }
+    
+    String getUsername()
+    {
+        return username;
+    }
+    
+    String getPassword()
+    {
+        return password;
+    }
+}
+
+class LogIn
+{
+    private String username, password;
+    void getAccount() throws FileNotFoundException
+    {
+        File file = new File("Records.txt");
+        Scanner sc = new Scanner(file);
+        String [] acc = sc.next().split("-");
+        
+        this.username = acc[0];
+        this.password = acc[1];
+    }
+    
+    String getUsername()
+    {
+        return username;
+    }
+    
+    String getPassword()
+    {
+        return password;
+    }
+}
